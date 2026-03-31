@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yongqi LI | CV & Portfolio</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #5c6883;
+      --line: #d9e1f0;
+      --accent: #274c9b;
+      --soft: #edf2ff;
+      --shadow: 0 10px 30px rgba(22, 32, 51, 0.08);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #f8faff 0%, var(--bg) 100%);
+      line-height: 1.65;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(39, 76, 155, 0.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-card {
+      padding: 24px;
+      position: sticky;
+      top: 20px;
+      align-self: start;
+    }
+
+    .avatar {
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      border: 4px solid var(--soft);
+      object-fit: cover;
+      display: block;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #dbe5ff, #f4f7ff);
+    }
+
+    .name {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 0 0 4px;
+      letter-spacing: 0.02em;
+    }
+
+    .title {
+      font-size: 1rem;
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 14px;
+      border-radius: 12px;
+      font-weight: 600;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: var(--soft);
+      color: var(--accent);
+      border-color: #d7e0fb;
+    }
+
+    .main {
+      display: grid;
+      gap: 24px;
+    }
+
+    .section {
+      padding: 24px;
+    }
+
+    .section h2 {
+      margin: 0 0 14px;
+      font-size: 1.3rem;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+
+    .summary {
+      margin: 0;
+      color: var(--text);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 14px;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline-item:first-child { border-top: none; padding-top: 0; }
+
+    .time {
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 0.95rem;
+    }
+
+    .meta-title {
+      font-weight: 700;
+      margin: 0 0 4px;
+    }
+
+    .meta-sub {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      background: var(--soft);
+      color: var(--accent);
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+
+    .project-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+    }
+
+    .project-top {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 0;
+      min-height: 260px;
+    }
+
+    .project-content {
+      padding: 22px;
+    }
+
+    .project-title {
+      margin: 0 0 8px;
+      font-size: 1.12rem;
+    }
+
+    .project-period {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--accent);
+      background: var(--soft);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .project-role {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+
+    .project-notes {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--text);
+    }
+
+    .project-notes li + li { margin-top: 6px; }
+
+    .visual-panel {
+      border-left: 1px solid var(--line);
+      background: #f8fbff;
+      display: grid;
+      grid-template-rows: 1.4fr 1fr;
+    }
+
+    .cover-placeholder,
+    .gallery-item,
+    .avatar-placeholder {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(39, 76, 155, 0.08), rgba(39, 76, 155, 0.02)),
+        repeating-linear-gradient(
+          45deg,
+          rgba(39, 76, 155, 0.06),
+          rgba(39, 76, 155, 0.06) 12px,
+          rgba(39, 76, 155, 0.02) 12px,
+          rgba(39, 76, 155, 0.02) 24px
+        );
+    }
+
+    .cover-placeholder::after,
+    .gallery-item::after,
+    .avatar-placeholder::after {
+      content: attr(data-label);
+      position: absolute;
+      inset: auto 12px 12px 12px;
+      display: inline-flex;
+      width: fit-content;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(39, 76, 155, 0.12);
+      color: var(--accent);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border-top: 1px solid var(--line);
+    }
+
+    .gallery-item {
+      min-height: 92px;
+      background-color: #eef4ff;
+    }
+
+    .two-col-list {
+      columns: 2;
+      column-gap: 24px;
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .two-col-list li {
+      break-inside: avoid;
+      margin-bottom: 10px;
+    }
+
+    .footer-note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .grid-2,
+      .project-top,
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card {
+        position: static;
+      }
+
+      .visual-panel {
+        border-left: none;
+        border-top: 1px solid var(--line);
+      }
+
+      .two-col-list {
+        columns: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <aside class="card profile-card">
+        <div class="avatar-placeholder avatar" data-label="替换为个人头像"></div>
+        <h1 class="name">Yongqi LI</h1>
+        <p class="title">Mechanical Engineering M.Sc. Candidate | Multiphase Flow & Optical Diagnostics</p>
+        <p>
+          Focused on turbulence-induced droplet fragmentation, oil-in-water emulsion bubble bursting, and experimental fluid mechanics.
+          Background spans research, teaching assistance, optical measurement, and mechanical system design.
+        </p>
+        <ul class="contact-list">
+          <li><strong>Institution:</strong> Technion – Israel Institute of Technology, Haifa, Israel</li>
+          <li><strong>Email:</strong> <a href="mailto:youngkid_lyq@163.com">youngkid_lyq@163.com</a> / <a href="mailto:yongqi.li@campus.technion.ac.il">yongqi.li@campus.technion.ac.il</a></li>
+          <li><strong>Phone:</strong> +86 15751768008 / +972 0586484572</li>
+          <li><strong>Portfolio:</strong> Add GitHub / LinkedIn / Google Scholar links here</li>
+        </ul>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-secondary" href="#publications">Research Outputs</a>
+        </div>
+      </aside>
+
+      <main class="main">
+        <section class="card section">
+          <h2>About</h2>
+          <p class="summary">
+            I am currently pursuing an M.Sc. in Mechanical Engineering at Technion under Prof. René van Hout and Assoc. Prof. Cheng Li.
+            My work centers on multiphase flows, bubble bursting physics, turbulence, and advanced optical diagnostics including Tomographic PIV and Digital In-line Holography.
+            Alongside research, I have experience as a teaching assistant and research assistant, with earlier project leadership in robotics, logistics systems, and product-mechanical innovation.
+          </p>
+          <div class="chips">
+            <span class="chip">Tomo-PIV</span>
+            <span class="chip">DIH</span>
+            <span class="chip">Matlab</span>
+            <span class="chip">SolidWorks</span>
+            <span class="chip">LaVision DaVis</span>
+            <span class="chip">Multiphase Flow</span>
+          </div>
+        </section>
+
+        <section class="card section">
+          <h2>Education</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="time">10/2024 – 10/2026</div>
+              <div>
+                <p class="meta-title">Technion – Israel Institute of Technology</p>
+                <p class="meta-sub">M.Sc. in Mechanical Engineering, Irwin and Joan Jacobs Graduate School</p>
+                <p class="meta-sub">Advisors: Prof. René van Hout & Assoc. Prof. Cheng Li</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">09/2018 – 06/2022</div>
+              <div>
+                <p class="meta-title">Nanjing Institute of Technology</p>
+                <p class="meta-sub">B.Eng. in Molding and Control Engineering, School of Materials Science and Engineering</p>
+                <p class="meta-sub">Weighted/Arithmetic Average: 83.75 / 84.87 · GPA: 3.6/5 · Ranking: 14/129</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <section class="card section" id="projects">
+      <h2>Selected Projects & Research Portfolio</h2>
+      <p class="section-intro">
+        Each card below already includes a large hero-image slot and a 3-image gallery strip. Replace the placeholders with experiment photos, setup diagrams, renders, posters, figures, videos, or result snapshots.
+      </p>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-content">
+              <span class="project-period">Since 12/2025</span>
+              <h3 class="project-title">Advanced Imaging of Turbulence-Induced Droplet Fragmentation</h3>
+              <p class="project-role"><strong>Role:</strong> Researcher · Advisors: Prof. René van Hout & Assoc. Prof. Cheng Li</p>
+              <ul class="project-notes">
+                <li>Add a 2–3 sentence summary of the scientific question, experimental setup, and expected contribution.</li>
+                <li>Recommended visuals: laboratory setup photo, flow-field figure, droplet breakup sequence.</li>
+                <li>Add links to paper, poster, dataset, or conference presentation when available.</li>
+              </ul>
+            </div>
+            <div class="visual-panel">
+              <div class="cover-placeholder" data-label="项目主图 / 封面图"></div>
+              <div class="gallery">
+                <div class="gallery-item" data-label="图集 01"></div>
+                <div class="gallery-item" data-label="图集 02"></div>
+                <div class="gallery-item" data-label="图集 03"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-content">
+              <span class="project-period">02/2023 – 11/2025</span>
+              <h3 class="project-title">Lifetime-Driven Multihole Bursting of Oil-in-Water Emulsion Bubbles</h3>
+              <p class="project-role"><strong>Role:</strong> Research Assistant / Researcher · Advisor: Assoc. Prof. Cheng Li</p>
+              <ul class="project-notes">
+                <li>Add problem definition, mechanism studied, and your contribution in experiment design, imaging, or analysis.</li>
+                <li>Recommended visuals: bursting sequence frames, annotated mechanism sketch, conference poster or figure panel.</li>
+                <li>Can be linked to the journal submission and conference presentations listed below.</li>
+              </ul>
+            </div>
+            <div class="visual-panel">
+              <div class="cover-placeholder" data-label="项目主图 / 封面图"></div>
+              <div class="gallery">
+                <div class="gallery-item" data-label="图集 01"></div>
+                <div class="gallery-item" data-label="图集 02"></div>
+                <div class="gallery-item" data-label="图集 03"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-content">
+              <span class="project-period">05/2021 – 05/2022</span>
+              <h3 class="project-title">Intelligent Logistics Robot Design Based on Improved Packaging and Sorting Line for Small and Medium-Sized Mobile Terminal Devices</h3>
+              <p class="project-role"><strong>Role:</strong> Project Leader</p>
+              <ul class="project-notes">
+                <li>Add design objective, system architecture, and leadership responsibilities.</li>
+                <li>Recommended visuals: system rendering, mechanical assembly, workflow diagram, competition/demo photos.</li>
+                <li>Good place to mention project outcomes, awards, or patents related to logistics robotics.</li>
+              </ul>
+            </div>
+            <div class="visual-panel">
+              <div class="cover-placeholder" data-label="项目主图 / 封面图"></div>
+              <div class="gallery">
+                <div class="gallery-item" data-label="图集 01"></div>
+                <div class="gallery-item" data-label="图集 02"></div>
+                <div class="gallery-item" data-label="图集 03"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-content">
+              <span class="project-period">12/2020 – 12/2021</span>
+              <h3 class="project-title">Cooperative Handling Robot Design Based on Wheel-Track Chassis</h3>
+              <p class="project-role"><strong>Role:</strong> Project Leader</p>
+              <ul class="project-notes">
+                <li>Add the mobility concept, transport scenario, and collaborative handling mechanism.</li>
+                <li>Recommended visuals: CAD render, chassis close-up, prototype photos, motion demo GIF.</li>
+                <li>Can be associated with the wheel–track switching patent section.</li>
+              </ul>
+            </div>
+            <div class="visual-panel">
+              <div class="cover-placeholder" data-label="项目主图 / 封面图"></div>
+              <div class="gallery">
+                <div class="gallery-item" data-label="图集 01"></div>
+                <div class="gallery-item" data-label="图集 02"></div>
+                <div class="gallery-item" data-label="图集 03"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-content">
+              <span class="project-period">12/2020 – 12/2021</span>
+              <h3 class="project-title">Improved Multi-Arm Collaborative Efficient Planning FDM System Based on Column Coordinate System</h3>
+              <p class="project-role"><strong>Role:</strong> Project Member</p>
+              <ul class="project-notes">
+                <li>Add your contribution to planning, structure design, or print-system optimization.</li>
+                <li>Recommended visuals: FDM architecture diagram, printed sample results, nozzle/arm layout.</li>
+                <li>Can be cross-referenced with the rotary-platform multi-nozzle 3D printer patent.</li>
+              </ul>
+            </div>
+            <div class="visual-panel">
+              <div class="cover-placeholder" data-label="项目主图 / 封面图"></div>
+              <div class="gallery">
+                <div class="gallery-item" data-label="图集 01"></div>
+                <div class="gallery-item" data-label="图集 02"></div>
+                <div class="gallery-item" data-label="图集 03"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-content">
+              <span class="project-period">12/2018 – 12/2020</span>
+              <h3 class="project-title">Inductive Parcel Sorting System</h3>
+              <p class="project-role"><strong>Role:</strong> Second in Charge</p>
+              <ul class="project-notes">
+                <li>Add sorting logic, sensing/actuation system, and your implementation scope.</li>
+                <li>Recommended visuals: parcel-flow diagram, conveyor photo, sensor-control layout.</li>
+                <li>Can be linked with logistics-related project outputs or prototype testing photos.</li>
+              </ul>
+            </div>
+            <div class="visual-panel">
+              <div class="cover-placeholder" data-label="项目主图 / 封面图"></div>
+              <div class="gallery">
+                <div class="gallery-item" data-label="图集 01"></div>
+                <div class="gallery-item" data-label="图集 02"></div>
+                <div class="gallery-item" data-label="图集 03"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-content">
+              <span class="project-period">12/2018 – 12/2019</span>
+              <h3 class="project-title">Retractable Portable Storage Box</h3>
+              <p class="project-role"><strong>Role:</strong> Project Leader</p>
+              <ul class="project-notes">
+                <li>Add user need, structural innovation, portability features, and design/manufacturing process.</li>
+                <li>Recommended visuals: exploded view, product render, prototype photos, usage scenario images.</li>
+                <li>This project fits well in a product-design subsection if you later split the page by theme.</li>
+              </ul>
+            </div>
+            <div class="visual-panel">
+              <div class="cover-placeholder" data-label="项目主图 / 封面图"></div>
+              <div class="gallery">
+                <div class="gallery-item" data-label="图集 01"></div>
+                <div class="gallery-item" data-label="图集 02"></div>
+                <div class="gallery-item" data-label="图集 03"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <section class="card section" id="publications">
+        <h2>Publications & Conference Presentations</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="time">Journal</div>
+            <div>
+              <p class="meta-title">Lifetime-Driven Multihole Bursting of Oil-in-Water Emulsion Bubbles</p>
+              <p class="meta-sub">Li, Y., Hu, J., Lyu, D., van Hout, R., Li, C. (2025). International Journal of Multiphase Flow. Under review.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">Journal</div>
+            <div>
+              <p class="meta-title">Low-cost Design and Performance of Triboelectric Nanogenerators</p>
+              <p class="meta-sub">Zhang, Y., Li, Y., Liu, K., Feng, X. (2021). Scientific and Technological Innovation, (24), 178–180.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">Conference</div>
+            <div>
+              <p class="meta-title">78th Division of Fluid Dynamics Annual Meeting</p>
+              <p class="meta-sub">Lifetime-Driven Multihole Bursting of Oil-in-Water Emulsion Bubbles (2025)</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">Conference</div>
+            <div>
+              <p class="meta-title">13th National Conference on Fluid Mechanics</p>
+              <p class="meta-sub">Investigation on the Multihole Bursting Mechanism of Bubbles in Oil-in-Water Emulsions (2024)</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">Conference</div>
+            <div>
+              <p class="meta-title">Bulletin of the American Physical Society</p>
+              <p class="meta-sub">Dilute Oil-in-Water Emulsion Promotes Multiple Holes Formation During Bursting of Centimetric Bubble (2023)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card section">
+        <h2>Work, Teaching & Skills</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="time">10/2025 – 02/2026</div>
+            <div>
+              <p class="meta-title">Teaching Assistant</p>
+              <p class="meta-sub">Intro. to Scientific and Engineering Computations · Winter 25/26</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">10/2024 – 02/2025</div>
+            <div>
+              <p class="meta-title">Teaching Assistant</p>
+              <p class="meta-sub">Intro. to Scientific and Engineering Computations · Winter 24/25</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">02/2023 – 10/2024</div>
+            <div>
+              <p class="meta-title">Research Assistant at LFID</p>
+              <p class="meta-sub">Guangdong Technion – Israel Institute of Technology</p>
+            </div>
+          </div>
+        </div>
+        <div class="chips">
+          <span class="chip">CET-6</span>
+          <span class="chip">TOEFL 104</span>
+          <span class="chip">SolidWorks</span>
+          <span class="chip">Unigraphics NX</span>
+          <span class="chip">KeyShot</span>
+          <span class="chip">C4D</span>
+          <span class="chip">Matlab</span>
+          <span class="chip">LaVision DaVis</span>
+        </div>
+      </section>
+    </section>
+
+    <section class="grid-2" style="margin-top:24px;">
+      <section class="card section">
+        <h2>Patents</h2>
+        <ul class="two-col-list">
+          <li>A Multi-Arm Collaborative Transport Robot Based on a Wheel–Track Switching Mechanism · CN110815163B</li>
+          <li>A Multifunctional Tantalum-Based Alloy Composite Layer for Friction Reduction, Noise Abatement and Thermal Insulation · CN111945095B</li>
+          <li>A Device and Method for Measuring the Resistivity and Hall Effect of Thin-Film Materials · CN216117806U / CN113820543A</li>
+          <li>A Pinch-Conveying Collaborative Logistics Robot · CN214827145U / CN113044560A</li>
+          <li>A Three-Dimensional Telescopic Frame Based on Slide-Buckle Positioning · CN213308280U</li>
+          <li>A Storage Cabinet Equipped with a Gripping Device · CN111214026A</li>
+          <li>A Multifunctional Intelligent Clothes-Drying Rack · CN211596127U / CN110904649A</li>
+          <li>A Multi-Nozzle 3D Printer Based on a Rotary Platform · CN109808179A</li>
+        </ul>
+      </section>
+
+      <section class="card section">
+        <h2>Awards & Activities</h2>
+        <ul class="two-col-list">
+          <li>Outstanding Student Leader Award</li>
+          <li>Outstanding League Cadre Award</li>
+          <li>Merit Student Award</li>
+          <li>First-class Scholarship</li>
+          <li>Advanced Individual Award in Science and Technology Innovation</li>
+          <li>1st Prize, 12th Mold Innovation Design Competition</li>
+          <li>1st Prize, 7th 3D Digital Innovation Design Competition</li>
+          <li>3rd Prize, 17th Challenge Cup (Jiangsu Provincial Selection)</li>
+          <li>2nd Prize, 8th Jiangsu Undergraduate Mechanical Innovational Design Competition</li>
+          <li>Special Prize / National Prize, 13th and 14th National 3D Digital Innovation Design Competition</li>
+          <li>Vice President, University Science and Technology Association (2020–2021)</li>
+          <li>Led the “New Research Cup” science and technology knowledge competition (~300 participants)</li>
+        </ul>
+      </section>
+    </section>
+
+    <section class="card section" style="margin-top:24px;">
+      <h2>How to Replace the Image Placeholders</h2>
+      <ol>
+        <li>Create an <code>assets/</code> folder in your GitHub Pages repository.</li>
+        <li>For each project, prepare 1 cover image and 3 gallery images. Example: <code>assets/project-01-cover.jpg</code>, <code>assets/project-01-1.jpg</code>...</li>
+        <li>Replace each placeholder block with an actual image tag such as <code>&lt;img src="./assets/project-01-cover.jpg" alt="Project cover" style="width:100%;height:100%;object-fit:cover;" /&gt;</code>.</li>
+        <li>If you want a larger gallery later, duplicate the <code>gallery-item</code> blocks or convert the gallery to a slider.</li>
+      </ol>
+      <p class="footer-note">This page is intentionally structured as a one-page academic CV + project portfolio. You can later split it into Home / Research / Projects / Publications / Patents subpages without changing the overall visual language.</p>
+    </section>
+  </div>
+</body>
+</html>
